@@ -127,9 +127,6 @@ UI.prototype.mostrarResultado = (total, seguro) => {
     const btnSubmit = document.querySelector('button[type="submit"]');
     btnSubmit.disabled = true;
 
-    // Limpiar Cotizar
-    limpiarCotizar();
-
     // Mostrar Spinner
     const spinner = document.querySelector('#cargando');
     spinner.style.display = 'block';
@@ -172,7 +169,7 @@ function eliminarMensajeAnterior() {
 }
 
 function limpiarCotizar() {
-
+    
     const resultado = document.querySelector('div.resultado');
     
     if(resultado) {
@@ -204,6 +201,8 @@ function eventListeners() {
 function cotizarSeguro(e) {
 
     e.preventDefault();
+
+    limpiarCotizar();
     
     // Leer la marca seleccionada
     const marca = document.querySelector("#marca").value;
